@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: , // This trailing comma makes auto-formatting nicer for build methods.
+      home: Home, // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
