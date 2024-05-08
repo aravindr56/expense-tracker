@@ -1,3 +1,4 @@
+import 'package:expence_tracker/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home, // This trailing comma makes auto-formatting nicer for build methods.
+      home: WelcomePage(),
+      debugShowCheckedModeBanner: false,// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
