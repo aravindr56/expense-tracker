@@ -12,6 +12,7 @@ class _ProfilePageState extends State<ProfilePage> {
     return PopScope(
       canPop: false,
       child: Scaffold(
+        backgroundColor: Colors.lightBlue.shade100,
         appBar: AppBar(
           leading: Icon(Icons.arrow_back_outlined),
           title: Text(
@@ -20,21 +21,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
+          backgroundColor: Colors.blue.shade100,
         ),
         body: Column(
           children: [
             SizedBox(
               height: 50,
             ),
-            Container(
-              width: 190,
-              height: 100,
-              color: Colors.white12,
-              child: Column(
-                children: [
                   Text(
                     'Username',
-                    style: TextStyle(color: Colors.grey, fontSize: 15),
+                    style: TextStyle(color: Colors.grey.shade800, fontSize: 15),
                   ),
                   Text(
                     'Aravind R',
@@ -45,18 +41,15 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Text(
                     'aravindr330@gmail.com',
-                    style: TextStyle(color: Colors.grey, fontSize: 15),
+                    style: TextStyle(color: Colors.grey.shade800, fontSize: 15),
                   ),
-                ],
-              ),
-            ),
             SizedBox(
               height: 50,
             ),
             Container(
               width: MediaQuery.sizeOf(context).width,
               height: 70,
-              color: Colors.grey.shade100,
+              color: Colors.blue.shade100,
               child: Row(
                 children: [
                   SizedBox(
@@ -94,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Container(
               width: MediaQuery.sizeOf(context).width,
               height: 70,
-              color: Colors.grey.shade100,
+              color: Colors.blue.shade100,
               child: Row(
                 children: [
                   SizedBox(

@@ -14,6 +14,7 @@ class _AddTransactionState extends State<AddTransaction> {
     return PopScope(
       canPop:false ,
       child: Scaffold(
+        backgroundColor: Colors.lightBlue.shade100,
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -32,6 +33,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
+          backgroundColor: Colors.lightBlue.shade200,
         ),
         body: SingleChildScrollView(
           child: Column(children: [
@@ -40,7 +42,7 @@ class _AddTransactionState extends State<AddTransaction> {
             ),
             Text(
               'How much?',
-              style: TextStyle(color: Colors.black, fontSize: 20),
+              style: TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold),
             ),
             Padding(
                 padding: const EdgeInsets.only(

@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: pages[myIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey.shade200,
+        backgroundColor: Colors.blue.shade100,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
