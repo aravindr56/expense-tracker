@@ -77,7 +77,7 @@ class _ViewTransactionState extends State<ViewTransaction> {
       String num = i.toString();
       var dropDown = DropdownMenu(
         dropdownMenuEntries: [
-          DropdownMenuEntry(value: "sk", label: num),
+          DropdownMenuEntry(value: "1", label: num),
         ],
       );
       dropDownWidget.add(dropDown);
@@ -119,18 +119,18 @@ class _ViewTransactionState extends State<ViewTransaction> {
                 },
                 width: MediaQuery.of(context).size.width * 0.9,
                 dropdownMenuEntries: [
-                  DropdownMenuEntry(value: "sk", label: "January"),
-                  DropdownMenuEntry(value: "sk", label: "Febraury"),
-                  DropdownMenuEntry(value: "sk", label: "march"),
-                  DropdownMenuEntry(value: "sk", label: "April"),
-                  DropdownMenuEntry(value: "sk", label: "May"),
-                  DropdownMenuEntry(value: "sk", label: "June"),
-                  DropdownMenuEntry(value: "sk", label: "july"),
-                  DropdownMenuEntry(value: "sk", label: "August"),
-                  DropdownMenuEntry(value: "sk", label: "September"),
-                  DropdownMenuEntry(value: "sk", label: "October"),
-                  DropdownMenuEntry(value: "sk", label: "November"),
-                  DropdownMenuEntry(value: "sk", label: "December"),
+                  DropdownMenuEntry(value: "1", label: "January"),
+                  DropdownMenuEntry(value: "2", label: "Febraury"),
+                  DropdownMenuEntry(value: "3", label: "march"),
+                  DropdownMenuEntry(value: "4", label: "April"),
+                  DropdownMenuEntry(value: "5", label: "May"),
+                  DropdownMenuEntry(value: "6", label: "June"),
+                  DropdownMenuEntry(value: "7", label: "july"),
+                  DropdownMenuEntry(value: "8", label: "August"),
+                  DropdownMenuEntry(value: "9", label: "September"),
+                  DropdownMenuEntry(value: "10", label: "October"),
+                  DropdownMenuEntry(value: "11", label: "November"),
+                  DropdownMenuEntry(value: "12", label: "December"),
                 ],
               ),
               SizedBox(

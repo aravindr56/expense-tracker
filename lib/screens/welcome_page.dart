@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../components/my-elevated_button.dart';
+import '../components/my_elevated_button.dart';
 import 'authentication/sign_up.dart';
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
@@ -10,27 +9,30 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+
   @override
   Widget build(BuildContext context) {
+   double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return PopScope(
       canPop: false,
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 20,
+             SizedBox(
+              height: h * 0.040,
             ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Container(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: 350,
+                  width:w,
+                  height:  h * 0.500,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       image: AssetImage(
-                        'assets/img3.jpeg',
+                        'assets/image.jpeg',
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -39,8 +41,8 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+             SizedBox(
+              height:h*  0.035,
             ),
             const Center(
                 child: Padding(
@@ -53,8 +55,8 @@ class _WelcomePageState extends State<WelcomePage> {
                         fontWeight: FontWeight.bold),
                   ),
                 )),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height:h * 0.020,
             ),
             const Text(
               'counter and distribute the income correctly',
@@ -63,15 +65,15 @@ class _WelcomePageState extends State<WelcomePage> {
                 fontSize: 16.0,
               ),
             ),
-            const SizedBox(
-              height: 50,
+             SizedBox(
+              height: h* 0.050,
             ),
             MyElevatedButton(
                 text: 'Continue',
                 onPressed: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SignUp()));
-                })
+                }, backgroundColor: Colors.blue.shade400, textColor: Colors.white, fixedSize:Size(300,50),),
           ],
         ),
       ),

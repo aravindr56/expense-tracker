@@ -20,6 +20,8 @@ class _HomePageState extends State<HomePage> {
   String formattedDate = DateFormat('EEEE, MMMM d').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return PopScope(
       canPop: true,
       child: Scaffold(
@@ -29,7 +31,10 @@ class _HomePageState extends State<HomePage> {
               flex: 1,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
                   color: Colors.lightBlue.shade100,
                 ),
                 child: Column(
@@ -41,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(formattedDate,style: TextStyle(color: Colors.black,fontSize: 18.0),),
                           SizedBox(
-                            width: 90,
+                            width: w*0.090,
                           ),
                           Text(
                             'Vishnu',
@@ -53,10 +58,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Divider(
                       color: Colors.black,
-                      height: 7,
+                      height:h*0.010,
                     ),
                     SizedBox(
-                      height: 45,
+                      height: h*0.065,
                     ),
                     Center(
                       child: Container(
@@ -79,12 +84,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 30,
+                      height: h*0.040,
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width:w* 0.055,
                         ),
                         Container(
                           width: 150,
@@ -96,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 20,
+                                width: h*0.020,
                               ),
                               Container(
                                 width: 45,
@@ -115,12 +120,12 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               SizedBox(
-                                width: 15,
+                                width: w*0.030,
                               ),
                               Column(
                                 children: [
                                   SizedBox(
-                                    height: 15,
+                                    height: h*0.020,
                                   ),
                                   Text('Income',
                                       style: TextStyle(
@@ -134,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         SizedBox(
-                          width: 20,
+                          width: h*0.040,
                         ),
                         Container(
                           width: 150,
@@ -146,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: 20,
+                                width: h*0.020,
                               ),
                               Container(
                                 width: 45,
@@ -165,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               SizedBox(
-                                width: 15,
+                                width:w* 0.030,
                               ),
                               Column(
                                 children: [
@@ -239,10 +244,10 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 5,
+                        height: h*0.010,
                       ),
                       Container(
-                        height: MediaQuery.sizeOf(context).height,
+                        height: h,
                         child: ListView.builder(
                           itemCount: recentTransition.length,
                           itemBuilder: (BuildContext context, int index) {
@@ -255,7 +260,10 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 height: 50,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(0),
+
+                                  ),
                                   color: Colors.white70,
                                 ),
                                 child: Row(

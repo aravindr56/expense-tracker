@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/my-elevated_button.dart';
+import '../../components/my_elevated_button.dart';
 import '../../components/my_text_field.dart';
 class AddTransaction extends StatefulWidget {
   const AddTransaction({super.key});
@@ -9,6 +9,10 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
+  TextEditingController amount=TextEditingController();
+  TextEditingController category=TextEditingController();
+  TextEditingController description=TextEditingController();
+  TextEditingController pickyourdate=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -49,13 +53,13 @@ class _AddTransactionState extends State<AddTransaction> {
                     left: 20, right: 20, top: 15, bottom: 15),
                 child: MyTextField(
                   text: '',
-                  decoration: InputDecoration(),
+                  decoration: InputDecoration(), controller: amount,
                 )),
             Padding(
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 15, bottom: 15),
               child: MyTextField(
-                decoration: InputDecoration(), text: 'Category',
+                decoration: InputDecoration(), text: 'Category', controller: category,
                 // hintText: 'Category',
               ),
             ),
@@ -63,7 +67,7 @@ class _AddTransactionState extends State<AddTransaction> {
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 10, bottom: 25),
               child: MyTextField(
-                decoration: InputDecoration(), text: 'Description',
+                decoration: InputDecoration(), text: 'Description', controller: description,
                 // hintText: 'Description',
               ),
             ),
@@ -96,13 +100,13 @@ class _AddTransactionState extends State<AddTransaction> {
                   left: 20, right: 20, top: 25, bottom: 10),
               child: MyTextField(
                 decoration: InputDecoration(),
-                text: 'Pick Your Date',
+                text: 'Pick Your Date', controller: pickyourdate,
               ),
             ),
             SizedBox(
               height: 50,
             ),
-            MyElevatedButton(text: "Continue", onPressed: () {}),
+            MyElevatedButton(text: "Continue", onPressed: () {}, backgroundColor: Colors.blue.shade400, textColor:Colors.white, fixedSize:Size(300,50),),
           ]),
         ),
       ),

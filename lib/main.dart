@@ -1,8 +1,18 @@
+import 'package:expence_tracker/firebase_options.dart';
 import 'package:expence_tracker/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  SystemChrome.setPreferredOrientations([
+  DeviceOrientation.portraitUp,
+  DeviceOrientation.portraitDown,
+     ]) .then((value) =>  runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

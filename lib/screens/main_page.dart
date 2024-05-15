@@ -27,7 +27,8 @@ class _MainPageState extends State<MainPage> {
       body: pages[myIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.blue.shade100,
-        showUnselectedLabels: true,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
           setState(() {
@@ -36,16 +37,16 @@ class _MainPageState extends State<MainPage> {
         },
         currentIndex: myIndex,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
           BottomNavigationBarItem(
             icon: Icon(Icons.enhance_photo_translate_sharp),
-            label: 'Transaction',
+            label: '',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add), label: 'add Transaction'),
-          BottomNavigationBarItem(icon: Icon(Icons.report), label: 'Report'),
+              icon: Icon(Icons.add), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.report), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline_rounded), label: 'Profile'),
+              icon: Icon(Icons.person_outline_rounded), label: ''),
         ],
       ),
     );

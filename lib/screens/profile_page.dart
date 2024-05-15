@@ -101,7 +101,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                       icon: Icon(
                         Icons.logout,
                         color: Colors.redAccent.shade700,

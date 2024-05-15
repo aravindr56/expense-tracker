@@ -3,16 +3,24 @@ import 'package:flutter/material.dart';
 class MyElevatedButton extends StatefulWidget {
   final String text;
   final VoidCallback onPressed;
+  final Color backgroundColor;
+  final Color textColor;
+  final Size fixedSize;
+
 
   const MyElevatedButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+    required this.backgroundColor,
+    required this.textColor,
+    required this.fixedSize,
+  });
 
   @override
   State<MyElevatedButton> createState() => _MyElevatedButtonState();
 }
+
 
 class _MyElevatedButtonState extends State<MyElevatedButton> {
   @override
@@ -32,13 +40,13 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       child: ElevatedButton(
         onPressed: widget.onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.blue.shade500,
-          fixedSize: Size(300, 50),
+          backgroundColor: widget.backgroundColor,
+          fixedSize: widget.fixedSize,
         ),
         child: Text(
           widget.text,
           style: TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+              color: widget.textColor, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
     );
