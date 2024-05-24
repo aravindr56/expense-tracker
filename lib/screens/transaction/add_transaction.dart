@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../components/my_elevated_button.dart';
 import '../../components/my_text_field.dart';
+import 'package:intl/intl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+
 class AddTransaction extends StatefulWidget {
   const AddTransaction({super.key});
 
@@ -9,105 +14,222 @@ class AddTransaction extends StatefulWidget {
 }
 
 class _AddTransactionState extends State<AddTransaction> {
-  TextEditingController amount=TextEditingController();
-  TextEditingController category=TextEditingController();
-  TextEditingController description=TextEditingController();
-  TextEditingController pickyourdate=TextEditingController();
+  TextEditingController amount = TextEditingController();
+  String? categoryValue;
+  TextEditingController description = TextEditingController();
+  TextEditingController pickyourdate = TextEditingController();
+
+  bool ? isSelected;
+  String ? selectedDate;
+  String ? type;
+
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
+    List<String> categories = ['Salary', 'Food', 'Shopping', 'Others', 'groceries'];
+
     return PopScope(
-      canPop:false ,
+      canPop: false,
       child: Scaffold(
-        backgroundColor: Colors.lightBlue.shade100,
+        backgroundColor: Colors.blue.shade50,
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              setState(() {
-                Navigator.pop(context);
-              });
+              Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back_outlined),
             color: Colors.black,
           ),
           title: Text(
-            ' Add Transactions',
+            'Add Transactions',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 15.0,
                 fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          backgroundColor: Colors.lightBlue.shade200,
+          backgroundColor: Colors.white70,
         ),
         body: SingleChildScrollView(
-          child: Column(children: [
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-              'How much?',
-              style: TextStyle(color: Colors.black, fontSize: 20,fontWeight: FontWeight.bold),
-            ),
-            Padding(
+          child: Column(
+            children: [
+              SizedBox(
+                height: h * 0.02,
+              ),
+              Text(
+                'How much?',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              Padding(
                 padding: const EdgeInsets.only(
                     left: 20, right: 20, top: 15, bottom: 15),
                 child: MyTextField(
-                  text: '',
-                  decoration: InputDecoration(), controller: amount,
-                )),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 15, bottom: 15),
-              child: MyTextField(
-                decoration: InputDecoration(), text: 'Category', controller: category,
-                // hintText: 'Category',
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 10, bottom: 25),
-              child: MyTextField(
-                decoration: InputDecoration(), text: 'Description', controller: description,
-                // hintText: 'Description',
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade400),
-                    child: Text(
-                      'Income',
-                      style: TextStyle(color: Colors.white, fontSize: 10),
-                    )),
-                SizedBox(
-                  width: 15,
+                  text: "Enter Amount",
+                  decoration: InputDecoration(),
+                  controller: amount,
                 ),
-                ElevatedButton(
-                    onPressed: () {},
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, top: 15, bottom: 15),
+                child: DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    hintText: 'Category',
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  value: categoryValue,
+                  onChanged: (newValue) {
+                    setState(() {
+                      categoryValue = newValue;
+                    });
+                  },
+                  items: categories.map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value,style: TextStyle(color: Colors.red),),
+                    );
+                  }).toList(),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 20, right: 20, top: 15, bottom: 15),
+                child: MyTextField(
+                  decoration: InputDecoration(),
+                  text: 'Description',
+                  controller: description,
+                ),
+              ),
+          GestureDetector(
+          onTap: () async {
+            DateTime? pickedDate = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2101),
+            );
+            if (pickedDate != null) {
+              setState(() {
+                selectedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
+              });
+            }
+          },
+            child: Container(
+            padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
+            margin: EdgeInsets.only(top: 15,bottom: 15,left: 20,right: 20),
+            decoration: BoxDecoration(
+            border: Border.all(color: Colors.black),
+            borderRadius: BorderRadius.circular(15),
+             ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    selectedDate ?? 'Pick Your Date',
+                    style: TextStyle(
+                      color: Colors.grey.shade700,
+                      fontSize: 16,
+                    ),
+                  ),
+                  Icon(Icons.calendar_today, color: Colors.grey),
+                ],
+              ),
+            ),
+          ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                     Padding(
+                       padding: const EdgeInsets.all(12.0),
+                       child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            isSelected=true;
+                            type="income";
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: isSelected == true ? Colors.green.shade400 :Colors.white60 ),
+                        child: Text(
+                          'Income',
+                          style: TextStyle(color: Colors.black, fontSize: 15),
+                        ),
+                                           ),
+                     ),
+
+                  SizedBox(
+                    width: w * 0.08,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        isSelected=false;
+                        type="expense";
+                      });
+                    },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red.shade400),
+                        backgroundColor: isSelected ==false ? Colors.red.shade400:Colors.white70 ),
                     child: Text(
                       'Expense',
-                      style: TextStyle(color: Colors.white, fontSize: 10),
-                    )),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 25, bottom: 10),
-              child: MyTextField(
-                decoration: InputDecoration(),
-                text: 'Pick Your Date', controller: pickyourdate,
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            MyElevatedButton(text: "Continue", onPressed: () {}, backgroundColor: Colors.blue.shade400, textColor:Colors.white, fixedSize:Size(300,50),),
-          ]),
+              SizedBox(
+                height: h * 0.03,
+              ),
+              MyElevatedButton(
+                text: "Continue",
+                onPressed: () async{
+                   if(amount.text.isNotEmpty && categoryValue != null && description.text.isNotEmpty && selectedDate != null && type != null){
+                   FirebaseAuth auth=FirebaseAuth.instance;
+                  FirebaseFirestore fireStore=FirebaseFirestore.instance;
+                  fireStore.collection('transaction').doc().set({
+                    'type':type,
+                    'amount':amount.text.trim(),
+                    'category':categoryValue,
+                    'description':description.text.trim(),
+                    'date':selectedDate,
+                    'userId':auth.currentUser!.uid,
+                    'time':Timestamp.now(),
+                  }).then((value) {
+                   setState(() {
+                     amount.clear();
+                     categoryValue= null;
+                     description.clear();
+                     selectedDate= null;
+                     isSelected= null;
+                     type= null;
+                   });
+
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Transaction Added Successfully'),
+                          backgroundColor: Colors.green.shade400,
+                        ));
+                  }).catchError((error){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content:Text("Failed to add transaction :$error"),backgroundColor: Colors.red.shade400,));
+                   });
+                  }else{
+                     ScaffoldMessenger.of(context).showSnackBar(
+                         SnackBar(content:Text("Please fill all the fields"),backgroundColor: Colors.grey.shade400,));
+                   }
+                },
+                backgroundColor: Colors.blue.shade400,
+                textColor: Colors.white,
+                fixedSize: Size(300, 50),
+              ),
+            ],
+          ),
         ),
       ),
     );

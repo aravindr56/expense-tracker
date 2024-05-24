@@ -29,7 +29,8 @@ class _SignUpState extends State<SignUp> {
       );
       SharedPreferences data = await SharedPreferences.getInstance();
       await data.setBool('isSignedIn', true);
-      await data.setString('userEmail', email.text);
+      await data.setString('name', name.text);
+      await data.setString('email', email.text);
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -65,17 +66,10 @@ class _SignUpState extends State<SignUp> {
       });
     }
   }
-
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double h = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -93,7 +87,7 @@ class _SignUpState extends State<SignUp> {
               child: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.all(20),
-                  height: h * 0.660,
+                  height: h * 0.680,
                   // width:w,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -138,10 +132,8 @@ class _SignUpState extends State<SignUp> {
                       backgroundColor: Colors.blue.shade400,
                       textColor: Colors.white,
                       fixedSize: Size(310, 50),),
-                    SizedBox(height: h*0.005,),
-
                     Text(errorMessage,style: TextStyle(color: Colors.red.shade800),),
-
+                    SizedBox(height: h*0.005,),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -153,13 +145,13 @@ class _SignUpState extends State<SignUp> {
                           'I am already a user. Sign In', style: TextStyle(
                             color: Colors.black,fontSize: 15),)),
                     Text('or',style: TextStyle(color: Colors.black,fontSize: 15),),
-                    // SizedBox(
-                    //   height:h *  0.010,
-                    // ),
+                    SizedBox(
+                      height:h *  0.020,
+                    ),
                     Row(
                       children: [
                         SizedBox(
-                           width: w * 0.070,
+                           width: w * 0.180,
                         ),
                         Container(
                           child: IconButton(
@@ -170,15 +162,15 @@ class _SignUpState extends State<SignUp> {
                             ),
                             onPressed: () {},
                           ),
-                          width:w*0.060,
-                          height: h *0.060,
+                          width:h * 0.060,
+                          height: h * 0.060,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
                         SizedBox(
-                           width: w*0.090,
+                           width: w * 0.090,
                         ),
                         Container(
                           child: IconButton(
@@ -189,15 +181,15 @@ class _SignUpState extends State<SignUp> {
                             ),
                             onPressed: () {},
                           ),
-                          width:w* 0.060,
-                          height: 0.060,
+                          width:h * 0.060,
+                          height: h * 0.060,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
                         SizedBox(
-                           width:w * 0.130,
+                           width:w * 0.090,
                         ),
                         Container(
                           child: IconButton(
@@ -208,12 +200,14 @@ class _SignUpState extends State<SignUp> {
                             ),
                             onPressed: () {},
                           ),
-                          width: 0.060,
-                          height: 0.060,
+                          width:h * 0.060,
+                          height: h * 0.060,
                           decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
+
                       ],
                     ),
 

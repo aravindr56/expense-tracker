@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: pages[myIndex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue.shade100,
+        backgroundColor: Colors.white70,
         showUnselectedLabels: false,
         showSelectedLabels: false,
         type: BottomNavigationBarType.fixed,
@@ -37,16 +37,16 @@ class _MainPageState extends State<MainPage> {
         },
         currentIndex: myIndex,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.black,), label: ''),
           BottomNavigationBarItem(
-            icon: Icon(Icons.enhance_photo_translate_sharp),
+            icon: Icon(Icons.enhance_photo_translate_sharp,color: Colors.black,),
             label: '',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.add), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.report), label: ''),
+              icon: Icon(Icons.add,color: Colors.black,), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.report,color: Colors.black,), label: ''),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline_rounded), label: ''),
+              icon: Icon(Icons.person_outline_rounded,color: Colors.black,), label: ''),
         ],
       ),
     );

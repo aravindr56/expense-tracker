@@ -33,9 +33,9 @@ class _SignInState extends State<SignIn> {
       await data.setBool('isSignedIn', true);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+        MaterialPageRoute(builder: (context) => MainPage()),
       );
-      await data.setString('userEmail', email.text);
+      // await data.setString('userEmail', email.text);
     } on FirebaseAuthException catch (e) {
       setState(() {
         print(e.code);
@@ -43,7 +43,7 @@ class _SignInState extends State<SignIn> {
           case 'user-not-found':
             errorMessage = 'No user found for the email.';
             break;
-          case 'wrong-password':
+          case 'invalid-credential':
             errorMessage = 'Wrong password provided.';
             break;
           case 'invalid-email':
@@ -79,14 +79,14 @@ class _SignInState extends State<SignIn> {
                 alignment: Alignment.topCenter,
                 child: Image.asset(
                   "assets/image.jpeg",
-                  height:h* 0.510,
+                  height:h * 0.510,
                   fit: BoxFit.fitHeight,
                 )),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
                 padding: EdgeInsets.all(20),
-                height:h* 0.550,
+                height:h* 0.580,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -102,11 +102,11 @@ class _SignInState extends State<SignIn> {
                         fontSize: 24),
                   ),
                   SizedBox(
-                    height: h*0.030,
+                    height: h * 0.030,
                   ),
                   MyTextField(text: 'Email', decoration: InputDecoration(), controller: email,),
                   SizedBox(
-                    height:h* 0.030,
+                    height:h * 0.030,
                   ),
                   MyTextField(text: 'Password', decoration: InputDecoration(),controller: password,),
                   SizedBox(

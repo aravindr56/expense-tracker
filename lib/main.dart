@@ -1,8 +1,11 @@
 import 'package:expence_tracker/firebase_options.dart';
+import 'package:expence_tracker/screens/splash_screen.dart';
 import 'package:expence_tracker/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:expence_tracker/provider/transaction_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +24,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: WelcomePage(),
-      debugShowCheckedModeBanner: false,// This trailing comma makes auto-formatting nicer for build methods.
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context)=>TransactionProvider())
+      ],
+    child: MaterialApp(
+    home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+    ),
     );
   }
 }

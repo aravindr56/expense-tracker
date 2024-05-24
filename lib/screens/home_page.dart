@@ -1,5 +1,8 @@
+import 'package:expence_tracker/provider/transaction_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -8,18 +11,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Map<String, dynamic>> recentTransition = [
-    {'amount': '1500', 'category': 'Income'},
-    {
-      "amount": "2500",
-      "category": "Food",
-    },
-    {'amount': '1500', 'category': 'Income'},
-  ];
+  String ? name;
+
 
   String formattedDate = DateFormat('EEEE, MMMM d').format(DateTime.now());
+
+    Future<void> userData()async{
+      SharedPreferences data= await SharedPreferences.getInstance();
+      name = data.getString('name');
+      setState(() {});
+    }
+    @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    userData();
+  }
   @override
   Widget build(BuildContext context) {
+      TransactionProvider transactionProvider=Provider.of<TransactionProvider>(context);
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return PopScope(
@@ -46,10 +56,10 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(formattedDate,style: TextStyle(color: Colors.black,fontSize: 18.0),),
                           SizedBox(
-                            width: w*0.090,
+                            width: w * 0.090,
                           ),
                           Text(
-                            'Vishnu',
+                            name ?? "",
                             style:
                             TextStyle(color: Colors.black, fontSize: 18.0),
                           ),
@@ -58,10 +68,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Divider(
                       color: Colors.black,
-                      height:h*0.010,
+                      height:h * 0.010,
                     ),
                     SizedBox(
-                      height: h*0.065,
+                      height: h * 0.065,
                     ),
                     Center(
                       child: Container(
@@ -73,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.grey.shade700, fontSize: 18.0),
                             ),
                             Text(
-                              '4500.0',
+                              transactionProvider.balance.toString(),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 30.0,
@@ -84,16 +94,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: h*0.040,
+                      height: h * 0.040,
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width:w* 0.055,
+                          width:w * 0.055,
                         ),
                         Container(
-                          width: 150,
-                          height: 70,
+                          width: w * 0.40,
+                          height: h * 0.10,
                           decoration: BoxDecoration(
                             color: Colors.green.shade500,
                             borderRadius: BorderRadius.circular(20.0),
@@ -101,11 +111,11 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: [
                               SizedBox(
-                                width: h*0.020,
+                                width: h * 0.020,
                               ),
                               Container(
-                                width: 45,
-                                height: 40,
+                                width: w * 0.13,
+                                height: h * 0.06,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(12),
@@ -120,17 +130,17 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               SizedBox(
-                                width: w*0.030,
+                                width: w * 0.030,
                               ),
                               Column(
                                 children: [
                                   SizedBox(
-                                    height: h*0.020,
+                                    height: h * 0.020,
                                   ),
                                   Text('Income',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16)),
-                                  Text('2500',
+                                  Text(transactionProvider.totalIncome.toString(),
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16)),
                                 ],
@@ -139,11 +149,11 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         SizedBox(
-                          width: h*0.040,
+                          width: h * 0.040,
                         ),
                         Container(
-                          width: 150,
-                          height: 70,
+                          width:  w * 0.40,
+                          height: h * 0.10,
                           decoration: BoxDecoration(
                             color: Colors.red.shade500,
                             borderRadius: BorderRadius.circular(20.0),
@@ -154,8 +164,8 @@ class _HomePageState extends State<HomePage> {
                                 width: h*0.020,
                               ),
                               Container(
-                                width: 45,
-                                height: 40,
+                                width: w * 0.13,
+                                height: h * 0.06,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(12),
@@ -170,17 +180,17 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               SizedBox(
-                                width:w* 0.030,
+                                width:w * 0.030,
                               ),
                               Column(
                                 children: [
                                   SizedBox(
-                                    height: 15,
+                                    height: h * 0.020 ,
                                   ),
                                   Text('Expense',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16)),
-                                  Text('2780',
+                                  Text(transactionProvider.totalExpense.toString(),
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16)),
                                 ],
@@ -199,16 +209,7 @@ class _HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.blue.shade200,
-                          Colors.blue.shade200,
-                          Colors.blue.shade200,
-                          Colors.blue.shade200,
-                        ]
-                      )
-                    // color: Colors.blue.shade300,
+                     color: Colors.blue.shade100,
                   ),
                   child: Column(
                     children: [
@@ -230,7 +231,9 @@ class _HomePageState extends State<HomePage> {
                                       fontWeight: FontWeight.bold),
                                 )),
                             ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                transactionProvider.totalIncome.toString();
+                                },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.grey.shade200),
                                 child: Text(
@@ -243,22 +246,17 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: h*0.010,
-                      ),
                       Container(
                         height: h,
                         child: ListView.builder(
-                          itemCount: recentTransition.length,
+                          itemCount: transactionProvider.transaction.length <= 3 ? 3 : transactionProvider.transaction.length,
                           itemBuilder: (BuildContext context, int index) {
-                            String amount =
-                            recentTransition[index]['amount'].toString();
-
+                            // String amount= recentTransition[index]['amount'].toString();
                             return Padding(
                               padding: EdgeInsets.only(
                                   right: 18, left: 18, top: 8, bottom: 8),
                               child: Container(
-                                height: 50,
+                                height: h * 0.065,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(0),
@@ -271,14 +269,14 @@ class _HomePageState extends State<HomePage> {
                                   MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      recentTransition[index]['amount'],
+                                      transactionProvider.transaction[index]['amount'].toString(),
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
-                                      recentTransition[index]['category'],
+                                      transactionProvider.transaction[index]['category'],
                                       style: TextStyle(
                                         color: Colors.grey.shade600,
                                         fontSize: 17,

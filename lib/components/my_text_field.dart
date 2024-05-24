@@ -21,6 +21,7 @@ class MyTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(15.0),
         ),
       ),
+      onTap: (){},
     );
   }
 }

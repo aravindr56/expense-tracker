@@ -15,20 +15,20 @@ class _WelcomePageState extends State<WelcomePage> {
    double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return PopScope(
-      canPop: false,
+      canPop: true,
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
              SizedBox(
-              height: h * 0.040,
+              height: h * 0.030,
             ),
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Container(
                   width:w,
-                  height:  h * 0.500,
+                  height:  h * 0.530,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       image: AssetImage(
@@ -42,7 +42,7 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
              SizedBox(
-              height:h*  0.035,
+              height:h*  0.025,
             ),
             const Center(
                 child: Padding(
@@ -66,7 +66,7 @@ class _WelcomePageState extends State<WelcomePage> {
               ),
             ),
              SizedBox(
-              height: h* 0.050,
+              height: h * 0.050,
             ),
             MyElevatedButton(
                 text: 'Continue',
