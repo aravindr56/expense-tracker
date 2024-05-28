@@ -35,9 +35,11 @@ class _ViewTransactionState extends State<ViewTransaction> {
       child: Scaffold(
         backgroundColor: Colors.lightBlue.shade50,
           appBar: AppBar(
-            leading: Icon(
-              Icons.arrow_back_outlined,
-              color: Colors.black,
+            leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_outlined,color: Colors.black,size: 20,),
             ),
             title: Text(
               'Transactions',

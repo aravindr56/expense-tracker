@@ -1,4 +1,5 @@
 import 'package:expence_tracker/provider/transaction_provider.dart';
+import 'package:expence_tracker/screens/transaction/view_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -219,20 +220,10 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey.shade200),
-                                child: Text(
-                                  'Recent Transaction',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                           Text('Recent Transaction',style: TextStyle(color: Colors.black,fontSize: 18),),
                             ElevatedButton(
                                 onPressed: () {
-                                transactionProvider.totalIncome.toString();
+                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ViewTransaction()));
                                 },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.grey.shade200),
@@ -249,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         height: h,
                         child: ListView.builder(
-                          itemCount: transactionProvider.transaction.length <= 3 ? 3 : transactionProvider.transaction.length,
+                          itemCount: transactionProvider.transaction.length > 4 ? 4 : transactionProvider.transaction.length,
                           itemBuilder: (BuildContext context, int index) {
                             // String amount= recentTransition[index]['amount'].toString();
                             return Padding(
@@ -288,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                             );
                           },
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
