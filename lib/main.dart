@@ -1,4 +1,5 @@
 import 'package:expence_tracker/firebase_options.dart';
+import 'package:expence_tracker/provider/bottom_navigation_provider.dart';
 import 'package:expence_tracker/screens/splash_screen.dart';
 import 'package:expence_tracker/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=>TransactionProvider())
+        ChangeNotifierProvider(create: (_)=>TransactionProvider()),
+        ChangeNotifierProvider(create: (context)=>NavigationProvider()),
       ],
     child: MaterialApp(
     home: SplashScreen(),

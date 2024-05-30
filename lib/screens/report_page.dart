@@ -1,8 +1,10 @@
+import 'package:expence_tracker/provider/transaction_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 class MonthlyReport extends StatefulWidget {
   const MonthlyReport({super.key});
 
@@ -14,7 +16,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
   String formattedDate = DateFormat('MMMM yyyy').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
-
+    TransactionProvider transactionProvider=Provider.of(context);
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -60,10 +62,10 @@ class _MonthlyReportState extends State<MonthlyReport> {
                                 borderRadius: BorderRadius.circular(100),
                                 color: Colors.white,
                               ),
-                              child: Icon(Icons.arrow_upward_sharp,size: 20,color: Colors.green,),
+                              child: Icon(Icons.arrow_upward_sharp,size: 20,color: Colors.green.shade400,),
                             ),
                             SizedBox(width: w * 0.03,),
-                            Text('15000',style: TextStyle(color: Colors.white,fontSize: 15),),
+                            Text(transactionProvider.totalIncome.toString(),style: TextStyle(color: Colors.white,fontSize: 18),),
                           ],
                         ),
                       ),
@@ -87,7 +89,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                               child: Icon(Icons.arrow_downward_sharp,size: 20,color: Colors.red,),
                             ),
                             SizedBox(width: w * 0.03,),
-                            Text('12000',style: TextStyle(color: Colors.white,fontSize: 15),),
+                            Text(transactionProvider.totalExpense.toString(),style: TextStyle(color: Colors.white,fontSize: 18),),
                           ],
                         ),
                       )
@@ -107,7 +109,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         children: [
                           // SizedBox(height:  h * 0.01,),
                           Text('Net Savings',style: TextStyle(color: Colors.black,fontSize: 15),),
-                          Text('3000',style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),),
+                          Text(transactionProvider.balance.toString(),style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),),
 
                         ],
                       ),
@@ -138,7 +140,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                          child: Row(
                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                            children: [
-                             Text('Income :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                             Text('Salary :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                            ],
                          ),
@@ -168,7 +170,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('others :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Food :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                               Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
@@ -240,7 +242,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Income :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('others :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                               Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),

@@ -28,7 +28,7 @@ class _AddTransactionState extends State<AddTransaction> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    List<String> categories = ['Salary', 'Food', 'Shopping', 'Others', 'groceries'];
+    List<String> categories = ['Salary', 'Food', 'Shopping', 'Others', 'Groceries',"Rental,"'Investment',"Entertainment","Petrol",];
 
     return PopScope(
       canPop: false,

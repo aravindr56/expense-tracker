@@ -1,3 +1,4 @@
+import 'package:expence_tracker/provider/bottom_navigation_provider.dart';
 import 'package:expence_tracker/provider/transaction_provider.dart';
 import 'package:expence_tracker/screens/transaction/view_transaction.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,8 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-      TransactionProvider transactionProvider=Provider.of<TransactionProvider>(context);
+      NavigationProvider navigationProvider=Provider.of(context);
+    TransactionProvider transactionProvider=Provider.of<TransactionProvider>(context);
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return PopScope(
@@ -223,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                            Text('Recent Transaction',style: TextStyle(color: Colors.black,fontSize: 18),),
                             ElevatedButton(
                                 onPressed: () {
-                                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ViewTransaction()));
+                                  navigationProvider.changeIndex(1);
                                 },
                                 style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.grey.shade200),

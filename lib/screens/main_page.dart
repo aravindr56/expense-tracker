@@ -3,7 +3,9 @@ import 'package:expence_tracker/screens/report_page.dart';
 import 'package:expence_tracker/screens/transaction/add_transaction.dart';
 import 'package:expence_tracker/screens/transaction/view_transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/bottom_navigation_provider.dart';
 import 'home_page.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -13,7 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int myIndex = 0;
+  // int myIndex = 0;
   List<Widget> pages = [
     HomePage(),
     ViewTransaction(),
@@ -23,19 +25,18 @@ class _MainPageState extends State<MainPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    NavigationProvider navigationProvider=Provider.of(context);
     return Scaffold(
-      body: pages[myIndex],
+      body: pages[navigationProvider.myIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white70,
         showUnselectedLabels: false,
         showSelectedLabels: false,
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
-          setState(() {
-            myIndex = index;
-          });
+          navigationProvider.changeIndex(index);
         },
-        currentIndex: myIndex,
+        currentIndex: navigationProvider.myIndex,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.black,), label: ''),
           BottomNavigationBarItem(
