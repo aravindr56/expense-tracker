@@ -141,7 +141,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                            children: [
                              Text('Salary :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                             Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                             Text(transactionProvider.salary.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                            ],
                          ),
                        ),
@@ -153,7 +153,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Rental :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.rental.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -171,7 +171,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Food :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.food.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -183,7 +183,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Shopping :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.shopping.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -201,7 +201,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Investment :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.investment.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -213,7 +213,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Groceries :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.groceries.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -231,7 +231,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('Petrol :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.petrol.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -243,7 +243,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text('others :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text('4500',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.others.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
