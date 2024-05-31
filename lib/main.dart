@@ -1,7 +1,7 @@
 import 'package:expence_tracker/firebase_options.dart';
 import 'package:expence_tracker/provider/bottom_navigation_provider.dart';
+import 'package:expence_tracker/provider/delete_account_provider.dart';
 import 'package:expence_tracker/screens/splash_screen.dart';
-import 'package:expence_tracker/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
@@ -29,8 +29,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context)=>TransactionProvider()),
         ChangeNotifierProvider(create: (context)=>NavigationProvider()),
+        ChangeNotifierProvider(create: (context)=>DeleteProvider()),
       ],
-    child: MaterialApp(
+    child: const MaterialApp(
     home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     ),

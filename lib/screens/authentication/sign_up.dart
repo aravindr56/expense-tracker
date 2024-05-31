@@ -86,10 +86,10 @@ class _SignUpState extends State<SignUp> {
               alignment: Alignment.bottomCenter,
               child: SingleChildScrollView(
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   height: h * 0.680,
                   // width:w,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(35),
@@ -108,19 +108,19 @@ class _SignUpState extends State<SignUp> {
                     ),
                     MyTextField(
                         controller: name,
-                        text: 'Name', decoration: InputDecoration()),
+                        text: 'Name', decoration: const InputDecoration()),
                     SizedBox(
                       height:h*  0.020,
                     ),
                     MyTextField(
                         controller: email,
-                        text: 'Email', decoration: InputDecoration()),
+                        text: 'Email', decoration: const InputDecoration()),
                     SizedBox(
                       height: h *0.020,
                     ),
                     MyTextField(
                         controller: password,
-                        text: 'Password', decoration: InputDecoration()),
+                        text: 'Password', decoration: const InputDecoration()),
                     SizedBox(
                       height: h * 0.030,
                     ),
@@ -131,7 +131,7 @@ class _SignUpState extends State<SignUp> {
                       },
                       backgroundColor: Colors.blue.shade400,
                       textColor: Colors.white,
-                      fixedSize: Size(310, 50),),
+                      fixedSize: const Size(310, 50),),
                     Text(errorMessage,style: TextStyle(color: Colors.red.shade800),),
                     SizedBox(height: h*0.005,),
                     TextButton(
@@ -141,10 +141,10 @@ class _SignUpState extends State<SignUp> {
                               MaterialPageRoute(
                                   builder: (context) => SignIn()));
                         },
-                        child: Text(
+                        child: const Text(
                           'I am already a user. Sign In', style: TextStyle(
                             color: Colors.black,fontSize: 15),)),
-                    Text('or',style: TextStyle(color: Colors.black,fontSize: 15),),
+                    const Text('or',style: TextStyle(color: Colors.black,fontSize: 15),),
                     SizedBox(
                       height:h *  0.020,
                     ),
@@ -154,57 +154,57 @@ class _SignUpState extends State<SignUp> {
                            width: w * 0.180,
                         ),
                         Container(
+                          width:h * 0.060,
+                          height: h * 0.060,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: IconButton(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.g_translate_sharp,
                               color: Colors.teal,
                               size: 30,
                             ),
                             onPressed: () {},
                           ),
+                        ),
+                        SizedBox(
+                           width: w * 0.090,
+                        ),
+                        Container(
                           width:h * 0.060,
                           height: h * 0.060,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(20),
                           ),
-                        ),
-                        SizedBox(
-                           width: w * 0.090,
-                        ),
-                        Container(
                           child: IconButton(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.facebook,
                               color: Colors.blue,
                               size: 30,
                             ),
                             onPressed: () {},
                           ),
-                          width:h * 0.060,
-                          height: h * 0.060,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.shade100,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
                         ),
                         SizedBox(
                            width:w * 0.090,
                         ),
                         Container(
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.apple,
-                              color: Colors.black,
-                              size: 30,
-                            ),
-                            onPressed: () {},
-                          ),
                           width:h * 0.060,
                           height: h * 0.060,
                           decoration: BoxDecoration(
                             color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: IconButton(
+                            icon: const Icon(
+                              Icons.apple,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            onPressed: () {},
                           ),
                         ),
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../screens/authentication/sign_in.dart';
 
 class DeleteProvider extends ChangeNotifier {
@@ -11,10 +10,10 @@ class DeleteProvider extends ChangeNotifier {
       if (user != null) {
         String uid = user.uid;
 
-        // Delete user data from Firestore (or Realtime Database)
+        // Delete user data from Firestorm
         await FirebaseFirestore.instance.collection('transaction').where('userId', isEqualTo: uid).get().then((snapshot) {
-          for (DocumentSnapshot ds in snapshot.docs){
-            ds.reference.delete();
+          for (var i in snapshot.docs){
+            i.reference.delete();
           }
         });
 
@@ -22,7 +21,7 @@ class DeleteProvider extends ChangeNotifier {
         await user.delete();
 
         // Show a success message
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Account deleted successfully.'),
         ));
 

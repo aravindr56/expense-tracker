@@ -4,7 +4,6 @@ import 'package:expence_tracker/screens/transaction/add_transaction.dart';
 import 'package:expence_tracker/screens/transaction/view_transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/bottom_navigation_provider.dart';
 import 'home_page.dart';
 class MainPage extends StatefulWidget {
@@ -15,13 +14,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  // int myIndex = 0;
   List<Widget> pages = [
-    HomePage(),
-    ViewTransaction(),
-    AddTransaction(),
-    MonthlyReport(),
-    ProfilePage(),
+    const HomePage(),
+    const ViewTransaction(),
+    const AddTransaction(),
+    const MonthlyReport(),
+    const ProfilePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -37,7 +35,7 @@ class _MainPageState extends State<MainPage> {
           navigationProvider.changeIndex(index);
         },
         currentIndex: navigationProvider.myIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home,color: Colors.black,), label: ''),
           BottomNavigationBarItem(
             icon: Icon(Icons.enhance_photo_translate_sharp,color: Colors.black,),

@@ -43,7 +43,7 @@ class _SignInState extends State<SignIn> {
           case 'user-not-found':
             errorMessage = 'No user found for the email.';
             break;
-          case 'invalid-credential':
+          case '-wrong-password':
             errorMessage = 'Wrong password provided.';
             break;
           case 'invalid-email':
@@ -85,10 +85,10 @@ class _SignInState extends State<SignIn> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 height:h* 0.580,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(35),
@@ -104,11 +104,11 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: h * 0.030,
                   ),
-                  MyTextField(text: 'Email', decoration: InputDecoration(), controller: email,),
+                  MyTextField(text: 'Email', decoration: const InputDecoration(), controller: email,),
                   SizedBox(
                     height:h * 0.030,
                   ),
-                  MyTextField(text: 'Password', decoration: InputDecoration(),controller: password,),
+                  MyTextField(text: 'Password', decoration: const InputDecoration(),controller: password,),
                   SizedBox(
                     height: h*0.040,
                   ),
@@ -126,7 +126,7 @@ class _SignInState extends State<SignIn> {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUp()));
                         });
                       },
-                      child: Text('New User. Sign Up',style: TextStyle(color: Colors.black,fontSize: 15),))
+                      child: const Text('New User. Sign Up',style: TextStyle(color: Colors.black,fontSize: 15),))
                 ]),
               ),
             ),

@@ -35,9 +35,9 @@ class _ViewTransactionState extends State<ViewTransaction> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {},
-            icon: Icon(Icons.arrow_back_outlined, color: Colors.black, size: 20),
+            icon: const Icon(Icons.arrow_back_outlined, color: Colors.black, size: 20),
           ),
-          title: Text(
+          title: const Text(
             'Transactions',
             style: TextStyle(color: Colors.black, fontSize: 15.0, fontWeight: FontWeight.bold),
           ),
@@ -48,7 +48,7 @@ class _ViewTransactionState extends State<ViewTransaction> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             DropdownButton<String>(
-              style: TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),
+              style: const TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),
               value: selectedMonth,
               onChanged: (String? newValue) {
                 if(newValue != null) {
@@ -58,7 +58,7 @@ class _ViewTransactionState extends State<ViewTransaction> {
                   Provider.of<TransactionProvider>(context,listen: false).getDataForMonth(newValue);
                 }
               },
-              items: [
+              items: const [
                 DropdownMenuItem(value: "01", child: Text("January")),
                 DropdownMenuItem(value: "02", child: Text("February")),
                 DropdownMenuItem(value: "03", child: Text("March")),
@@ -91,7 +91,7 @@ class _ViewTransactionState extends State<ViewTransaction> {
                         color: Colors.white70,
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         child: Column(
                           children: [
                             Row(

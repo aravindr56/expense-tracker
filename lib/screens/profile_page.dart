@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import '../provider/delete_account_provider.dart';
 import 'authentication/sign_in.dart';
@@ -20,7 +19,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<void> userData() async {
     SharedPreferences data = await SharedPreferences.getInstance();
     name = data.getString('name') ?? "";
-    email = data.getString('email');
+    email = data.getString('email') ?? '';
     setState(() {});
   }
 
@@ -30,11 +29,11 @@ class _ProfilePageState extends State<ProfilePage> {
     userData();
   }
 
-  Future<void> _showConfirmationDialog(
+  Future<void> showConfirmationDialog(
       BuildContext context, String title, String content, VoidCallback onConfirm) {
     return showDialog<void>(
       context: context,
-      barrierDismissible: false, // User must tap button!
+      barrierDismissible: false, // User must tap button
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
@@ -47,13 +46,13 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('No'),
+              child: const Text('No'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Yes'),
+              child: const Text('Yes'),
               onPressed: () {
                 Navigator.of(context).pop();
                 onConfirm();
@@ -65,8 +64,8 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  void _logOut(BuildContext context) {
-    _showConfirmationDialog(
+  void logOut(BuildContext context) {
+    showConfirmationDialog(
       context,
       'Log Out',
       'Are you sure you want to log out?',
@@ -74,13 +73,13 @@ class _ProfilePageState extends State<ProfilePage> {
         SharedPreferences data = await SharedPreferences.getInstance();
         data.setBool('isSignedIn', false);
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => SignIn()));
+            context, MaterialPageRoute(builder: (context) => const SignIn()));
       },
     );
   }
 
-  void _deleteAccount(BuildContext context) {
-    _showConfirmationDialog(
+  void deleteAccount(BuildContext context) {
+    showConfirmationDialog(
       context,
       'Delete Account',
       'Are you sure you want to delete your account?',
@@ -96,15 +95,13 @@ class _ProfilePageState extends State<ProfilePage> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return ChangeNotifierProvider(
-      create: (_) => DeleteProvider(),
-      child: WillPopScope(
-        onWillPop: () async => false,
+    return PopScope(
+        canPop: false,
         child: Scaffold(
           backgroundColor: Colors.lightBlue.shade50,
           appBar: AppBar(
-            leading: Icon(Icons.arrow_back_outlined),
-            title: Text(
+            leading: const Icon(Icons.arrow_back_outlined),
+            title: const Text(
               'Profile',
               style: TextStyle(
                   color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
@@ -126,7 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               Text(
                 name ?? "",
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
@@ -159,7 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          _deleteAccount(context);
+                          deleteAccount(context);
                         },
                         icon: Icon(
                           Icons.delete_forever_sharp,
@@ -171,7 +168,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       width: w * 0.07,
                     ),
-                    Text(
+                    const Text(
                       'Delete Account',
                       style: TextStyle(
                           color: Colors.black,
@@ -199,7 +196,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          _logOut(context);
+                          logOut(context);
                         },
                         icon: Icon(
                           Icons.logout,
@@ -211,7 +208,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(
                       width: w * 0.07,
                     ),
-                    Text(
+                    const Text(
                       'Log Out',
                       style: TextStyle(
                           color: Colors.black,
@@ -224,7 +221,6 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
         ),
-      ),
-    );
+        );
   }
 }

@@ -27,14 +27,6 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // gradient: LinearGradient(
-        //   colors: [
-        //     Colors.blue.shade600,
-        //     Colors.blue.shade600,
-        //     Colors.blue.shade600,
-        //     Colors.blue.shade600,
-        //   ],
-        // ),
         borderRadius: BorderRadius.circular(20),
       ),
       child: ElevatedButton(

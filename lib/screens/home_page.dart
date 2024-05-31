@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
               flex: 1,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
@@ -57,14 +57,14 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(formattedDate,style: TextStyle(color: Colors.indigo,fontSize: 18.0,fontWeight: FontWeight.bold),),
+                          Text(formattedDate,style: const TextStyle(color: Colors.indigo,fontSize: 18.0,fontWeight: FontWeight.bold),),
                           SizedBox(
                             width: w * 0.090,
                           ),
                           Text(
                             name ?? "",
                             style:
-                            TextStyle(color: Colors.indigoAccent, fontSize: 18.0,fontWeight: FontWeight.bold),
+                            const TextStyle(color: Colors.indigoAccent, fontSize: 18.0,fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -78,23 +78,21 @@ class _HomePageState extends State<HomePage> {
                       height: h * 0.065,
                     ),
                     Center(
-                      child: Container(
-                        child: Column(
-                          children: [
-                            Text(
-                              'Account Balance',
-                              style: TextStyle(
-                                  color: Colors.grey.shade700, fontSize: 18.0,fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              transactionProvider.balance.toString(),
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Account Balance',
+                            style: TextStyle(
+                                color: Colors.grey.shade700, fontSize: 18.0,fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            transactionProvider.balance.toString(),
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
@@ -141,11 +139,11 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     height: h * 0.020,
                                   ),
-                                  Text('Income',
+                                  const Text('Income',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold)),
                                   Text(transactionProvider.totalIncome.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -191,11 +189,11 @@ class _HomePageState extends State<HomePage> {
                                   SizedBox(
                                     height: h * 0.020 ,
                                   ),
-                                  Text('Expense',
+                                  const Text('Expense',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold)),
                                   Text(transactionProvider.totalExpense.toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -223,27 +221,26 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                           Text('Recent Transaction',style: TextStyle(color: Colors.deepPurple,fontSize: 18,fontWeight: FontWeight.bold),),
+                           const Text('Recent Transaction',style: TextStyle(color: Colors.deepPurple,fontSize: 18,fontWeight: FontWeight.bold),),
                            TextButton(
                                onPressed: (){
                                  navigationProvider.changeIndex(1);
                                },
-                               child: Text('View All..',style: TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),))
+                               child: const Text('View All..',style: TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),))
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: h,
                         child: ListView.builder(
                           itemCount: transactionProvider.transaction.length > 4 ? 4 : transactionProvider.transaction.length,
                           itemBuilder: (BuildContext context, int index) {
-                            // String amount= recentTransition[index]['amount'].toString();
                             return Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                   right: 18, left: 18, top: 8, bottom: 8),
                               child: Container(
                                 height: h * 0.065,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topRight: Radius.circular(0),
 
@@ -256,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                                   children: [
                                     Text(
                                       transactionProvider.transaction[index]['amount'].toString(),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: Colors.black,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold),

@@ -36,13 +36,11 @@ class _AddTransactionState extends State<AddTransaction> {
         backgroundColor: Colors.blue.shade50,
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back_outlined),
+            onPressed: () {},
+            icon: const Icon(Icons.arrow_back_outlined),
             color: Colors.black,
           ),
-          title: Text(
+          title: const Text(
             'Add Transactions',
             style: TextStyle(
                 color: Colors.black,
@@ -58,7 +56,7 @@ class _AddTransactionState extends State<AddTransaction> {
               SizedBox(
                 height: h * 0.02,
               ),
-              Text(
+              const Text(
                 'How much?',
                 style: TextStyle(
                     color: Colors.black,
@@ -70,7 +68,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     left: 20, right: 20, top: 15, bottom: 15),
                 child: MyTextField(
                   text: "Enter Amount",
-                  decoration: InputDecoration(),
+                  decoration: const InputDecoration(),
                   controller: amount,
                 ),
               ),
@@ -80,7 +78,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
                     hintText: 'Category',
-                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -94,7 +92,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   items: categories.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value,style: TextStyle(color: Colors.purple),),
+                      child: Text(value,style: const TextStyle(color: Colors.purple),),
                     );
                   }).toList(),
                 ),
@@ -103,7 +101,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 padding: const EdgeInsets.only(
                     left: 20, right: 20, top: 15, bottom: 15),
                 child: MyTextField(
-                  decoration: InputDecoration(),
+                  decoration: const InputDecoration(),
                   text: 'Description',
                   controller: description,
                 ),
@@ -123,8 +121,8 @@ class _AddTransactionState extends State<AddTransaction> {
             }
           },
             child: Container(
-            padding: EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
-            margin: EdgeInsets.only(top: 15,bottom: 15,left: 20,right: 20),
+            padding: const EdgeInsets.only(left: 20,right: 20,top: 10,bottom: 10),
+            margin: const EdgeInsets.only(top: 15,bottom: 15,left: 20,right: 20),
             decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.circular(15),
@@ -139,7 +137,7 @@ class _AddTransactionState extends State<AddTransaction> {
                       fontSize: 16,
                     ),
                   ),
-                  Icon(Icons.calendar_today, color: Colors.grey),
+                  const Icon(Icons.calendar_today, color: Colors.grey),
                 ],
               ),
             ),
@@ -158,7 +156,7 @@ class _AddTransactionState extends State<AddTransaction> {
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: isSelected == true ? Colors.green.shade400 :Colors.white60 ),
-                        child: Text(
+                        child: const Text(
                           'Income',
                           style: TextStyle(color: Colors.black, fontSize: 15),
                         ),
@@ -177,7 +175,7 @@ class _AddTransactionState extends State<AddTransaction> {
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: isSelected ==false ? Colors.red.shade400:Colors.white70 ),
-                    child: Text(
+                    child: const Text(
                       'Expense',
                       style: TextStyle(color: Colors.black, fontSize: 15),
                     ),
@@ -212,7 +210,7 @@ class _AddTransactionState extends State<AddTransaction> {
                    });
 
                     ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Transaction Added Successfully'),
+                        SnackBar(content: const Text('Transaction Added Successfully'),
                           backgroundColor: Colors.green.shade400,
                         ));
                   }).catchError((error){
@@ -221,12 +219,12 @@ class _AddTransactionState extends State<AddTransaction> {
                    });
                   }else{
                      ScaffoldMessenger.of(context).showSnackBar(
-                         SnackBar(content:Text("Please fill all the fields"),backgroundColor: Colors.grey.shade400,));
+                         SnackBar(content:const Text("Please fill all the fields"),backgroundColor: Colors.grey.shade400,));
                    }
                 },
                 backgroundColor: Colors.blue.shade400,
                 textColor: Colors.white,
-                fixedSize: Size(300, 50),
+                fixedSize: const Size(300, 50),
               ),
             ],
           ),

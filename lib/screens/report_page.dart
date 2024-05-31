@@ -31,10 +31,10 @@ class _MonthlyReportState extends State<MonthlyReport> {
               child: Column(
                 children: [
                   SizedBox(height: h * 0.05,),
-                  Center(child: Text('Monthly Report',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),)),
-                  Center(child: Text(formattedDate,style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)),
+                  const Center(child: Text('Monthly Report',style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),)),
+                  Center(child: Text(formattedDate,style: const TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)),
                   SizedBox(height: h * 0.025,),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text('Total Income',style: TextStyle(color: Colors.
@@ -87,10 +87,10 @@ class _MonthlyReportState extends State<MonthlyReport> {
                                 borderRadius: BorderRadius.circular(80),
                                 color: Colors.white,
                               ),
-                              child: Icon(Icons.arrow_downward_sharp,size: 20,color: Colors.red,),
+                              child: const Icon(Icons.arrow_downward_sharp,size: 20,color: Colors.red,),
                             ),
                             SizedBox(width: w * 0.03,),
-                            Text(transactionProvider.totalExpense.toString(),style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+                            Text(transactionProvider.totalExpense.toString(),style: const TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       )
@@ -110,7 +110,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         children: [
                           // SizedBox(height:  h * 0.01,),
                           Text('Net Savings',style: TextStyle(color: Colors.purple.shade600,fontSize: 17,fontWeight: FontWeight.bold),),
-                          Text(transactionProvider.balance.toString(),style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
+                          Text(transactionProvider.balance.toString(),style: const TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
 
                         ],
                       ),
@@ -141,20 +141,20 @@ class _MonthlyReportState extends State<MonthlyReport> {
                          child: Row(
                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                            children: [
-                             Text('Salary :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                             Text(transactionProvider.salary.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                             const Text('Salary :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                             Text(transactionProvider.salary.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                            ],
                          ),
                        ),
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Rental :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.rental.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Rental :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.rental.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -167,24 +167,24 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Food :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.food.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Food :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.food.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
                           width:  w *0.37,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Shopping :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.shopping.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Shopping :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.shopping.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -197,24 +197,24 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Investment :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.investment.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Investment :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.investment.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Groceries :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.groceries.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Groceries :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.groceries.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -227,24 +227,24 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Petrol :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.petrol.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('Petrol :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.petrol.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
                           width:  w *0.38,
                           height: h * 0.07,
-                          decoration: BoxDecoration(color: Colors.white30),
+                          decoration: const BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('others :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.others.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
+                              const Text('others :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 17,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.others.toString(),style: const TextStyle(color: Colors.indigo,fontSize: 16,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
