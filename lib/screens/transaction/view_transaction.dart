@@ -48,6 +48,7 @@ class _ViewTransactionState extends State<ViewTransaction> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             DropdownButton<String>(
+              style: TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),
               value: selectedMonth,
               onChanged: (String? newValue) {
                 if(newValue != null) {
@@ -96,16 +97,16 @@ class _ViewTransactionState extends State<ViewTransaction> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(transactionProvider.transaction[index]["category"]),
+                                Text(transactionProvider.transaction[index]["category"],style: TextStyle(color: Colors.indigoAccent,fontSize: 17,fontWeight: FontWeight.bold),),
                                 Text(transactionProvider.transaction[index]["amount"].toString(),
-                                    style: TextStyle(color: textColor)),
+                                    style: TextStyle(color: textColor,fontSize: 17,fontWeight: FontWeight.bold)),
                               ],
                             ),
                             SizedBox(height: h * 0.01),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(transactionProvider.transaction[index]["description"]),
+                                Text(transactionProvider.transaction[index]["description"],style: TextStyle(color: Colors.grey.shade600,fontSize: 14,fontWeight: FontWeight.bold),),
                                 Text(transactionProvider.transaction[index]["date"]),
                               ],
                             ),

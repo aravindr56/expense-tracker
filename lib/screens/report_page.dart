@@ -37,8 +37,9 @@ class _MonthlyReportState extends State<MonthlyReport> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text('Total Income',style: TextStyle(color: Colors.black,fontSize: 15),),
-                      Text('Total Expense',style: TextStyle(color: Colors.black,fontSize: 15),),
+                      Text('Total Income',style: TextStyle(color: Colors.
+                          blueAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                      Text('Total Expense',style: TextStyle(color: Colors.blueAccent,fontSize: 18,fontWeight: FontWeight.bold),),
                     ],
                   ),
                   SizedBox(height: h * 0.020,),
@@ -65,7 +66,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                               child: Icon(Icons.arrow_upward_sharp,size: 20,color: Colors.green.shade400,),
                             ),
                             SizedBox(width: w * 0.03,),
-                            Text(transactionProvider.totalIncome.toString(),style: TextStyle(color: Colors.white,fontSize: 18),),
+                            Text(transactionProvider.totalIncome.toString(),style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       ),
@@ -89,7 +90,7 @@ class _MonthlyReportState extends State<MonthlyReport> {
                               child: Icon(Icons.arrow_downward_sharp,size: 20,color: Colors.red,),
                             ),
                             SizedBox(width: w * 0.03,),
-                            Text(transactionProvider.totalExpense.toString(),style: TextStyle(color: Colors.white,fontSize: 18),),
+                            Text(transactionProvider.totalExpense.toString(),style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                           ],
                         ),
                       )
@@ -98,8 +99,8 @@ class _MonthlyReportState extends State<MonthlyReport> {
                   SizedBox(height: h * 0.05,),
                   Center(
                     child: Container(
-                      height:  h * 0.08,
-                      width:  w * 0.32,
+                      height:  h * 0.09,
+                      width:  w * 0.35,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey.shade400,
@@ -108,8 +109,8 @@ class _MonthlyReportState extends State<MonthlyReport> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           // SizedBox(height:  h * 0.01,),
-                          Text('Net Savings',style: TextStyle(color: Colors.black,fontSize: 15),),
-                          Text(transactionProvider.balance.toString(),style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),),
+                          Text('Net Savings',style: TextStyle(color: Colors.purple.shade600,fontSize: 17,fontWeight: FontWeight.bold),),
+                          Text(transactionProvider.balance.toString(),style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold),),
 
                         ],
                       ),
@@ -134,26 +135,26 @@ class _MonthlyReportState extends State<MonthlyReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                        Container(
-                         width:  w *0.35,
-                         height: h * 0.06,
-                         decoration: BoxDecoration(color: Colors.white),
+                         width:  w *0.38,
+                         height: h * 0.07,
+                         decoration: BoxDecoration(color: Colors.white30),
                          child: Row(
                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                            children: [
-                             Text('Salary :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                             Text(transactionProvider.salary.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                             Text('Salary :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                             Text(transactionProvider.salary.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                            ],
                          ),
                        ),
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Rental :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.rental.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Rental :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.rental.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -164,26 +165,26 @@ class _MonthlyReportState extends State<MonthlyReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Food :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.food.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Food :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.food.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.37,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Shopping :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.shopping.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Shopping :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.shopping.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -194,26 +195,26 @@ class _MonthlyReportState extends State<MonthlyReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Investment :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.investment.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Investment :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.investment.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Groceries :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.groceries.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Groceries :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.groceries.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
@@ -224,26 +225,26 @@ class _MonthlyReportState extends State<MonthlyReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('Petrol :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.petrol.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('Petrol :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.petrol.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),
                         Container(
-                          width:  w *0.35,
-                          height: h * 0.06,
-                          decoration: BoxDecoration(color: Colors.white),
+                          width:  w *0.38,
+                          height: h * 0.07,
+                          decoration: BoxDecoration(color: Colors.white30),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text('others :',style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
-                              Text(transactionProvider.others.toString(),style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),),
+                              Text('others :',style: TextStyle(color: Colors.deepPurpleAccent,fontSize: 18,fontWeight: FontWeight.bold),),
+                              Text(transactionProvider.others.toString(),style: TextStyle(color: Colors.indigo,fontSize: 17,fontWeight: FontWeight.bold),),
                             ],
                           ),
                         ),

@@ -28,7 +28,7 @@ class _AddTransactionState extends State<AddTransaction> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    List<String> categories = ['Salary', 'Food', 'Shopping', 'Others', 'Groceries',"Rental,"'Investment',"Entertainment","Petrol",];
+    List<String> categories = ['Salary', 'Food', 'Shopping', 'Others', 'Groceries',"Rental",'Investment',"Entertainment","Petrol",];
 
     return PopScope(
       canPop: false,
@@ -50,7 +50,7 @@ class _AddTransactionState extends State<AddTransaction> {
                 fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          backgroundColor: Colors.white70,
+          backgroundColor: Colors.white38,
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -94,7 +94,7 @@ class _AddTransactionState extends State<AddTransaction> {
                   items: categories.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value,style: TextStyle(color: Colors.red),),
+                      child: Text(value,style: TextStyle(color: Colors.purple),),
                     );
                   }).toList(),
                 ),

@@ -53,24 +53,25 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 40,bottom: 5,left: 20,right: 20),
+                      padding: const EdgeInsets.only(top: 45,bottom: 5,left: 20,right: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(formattedDate,style: TextStyle(color: Colors.black,fontSize: 18.0),),
+                          Text(formattedDate,style: TextStyle(color: Colors.indigo,fontSize: 18.0,fontWeight: FontWeight.bold),),
                           SizedBox(
                             width: w * 0.090,
                           ),
                           Text(
                             name ?? "",
                             style:
-                            TextStyle(color: Colors.black, fontSize: 18.0),
+                            TextStyle(color: Colors.indigoAccent, fontSize: 18.0,fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
                     ),
                     Divider(
                       color: Colors.black,
+                      thickness: 1.2,
                       height:h * 0.010,
                     ),
                     SizedBox(
@@ -83,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Account Balance',
                               style: TextStyle(
-                                  color: Colors.grey.shade700, fontSize: 18.0),
+                                  color: Colors.grey.shade700, fontSize: 18.0,fontWeight: FontWeight.bold),
                             ),
                             Text(
                               transactionProvider.balance.toString(),
@@ -142,10 +143,10 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Text('Income',
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 16)),
+                                          color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold)),
                                   Text(transactionProvider.totalIncome.toString(),
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 16)),
+                                          color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ],
@@ -192,10 +193,10 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Text('Expense',
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 16)),
+                                          color: Colors.white, fontSize: 17,fontWeight: FontWeight.bold)),
                                   Text(transactionProvider.totalExpense.toString(),
                                       style: TextStyle(
-                                          color: Colors.white, fontSize: 16)),
+                                          color: Colors.white, fontSize: 18,fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             ],
@@ -222,20 +223,12 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                           Text('Recent Transaction',style: TextStyle(color: Colors.black,fontSize: 18),),
-                            ElevatedButton(
-                                onPressed: () {
-                                  navigationProvider.changeIndex(1);
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.grey.shade200),
-                                child: Text(
-                                  'view All',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.bold),
-                                )),
+                           Text('Recent Transaction',style: TextStyle(color: Colors.deepPurple,fontSize: 18,fontWeight: FontWeight.bold),),
+                           TextButton(
+                               onPressed: (){
+                                 navigationProvider.changeIndex(1);
+                               },
+                               child: Text('View All..',style: TextStyle(color: Colors.purple,fontSize: 18,fontWeight: FontWeight.bold),))
                           ],
                         ),
                       ),
@@ -273,6 +266,7 @@ class _HomePageState extends State<HomePage> {
                                       style: TextStyle(
                                         color: Colors.grey.shade600,
                                         fontSize: 17,
+                                        fontWeight: FontWeight.bold
                                       ),
                                     ),
                                   ],
